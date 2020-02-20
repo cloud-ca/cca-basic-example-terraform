@@ -7,6 +7,13 @@ This terraform example will create:
 - 2 VM instances of 2vcpu, 1GBram
 - Port forwarding rule for SSH access to one VM.
 
+This example currently work with Terraform 0.12.x.
+
+### Install Terraform
+
+* Install Terraform, https://www.terraform.io/downloads.html
+* Install cloud.ca Terraform driver; https://github.com/cloud-ca/terraform-provider-cloudca#installation
+
 ## How to use
 
 - generate ssh keys, with `ssh-keygen -t rsa -b 4096 -N "" -f ./id_rsa` for example
@@ -25,7 +32,7 @@ organization_name = "demo"
 
 ```
 terraform init
-terraform verify
+terraform validate
 terraform apply
 ```
 
@@ -37,3 +44,7 @@ Once the terraform job is completed, you can ssh the web instance thru
 ```
 terraform destroy
 ```
+
+## Customization
+
+Number of instances and their specs can be changed from the `variables.tf` and `instances.tf` files.
